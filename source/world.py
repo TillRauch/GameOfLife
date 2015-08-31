@@ -37,8 +37,8 @@ class World():
     
     def nextGeneration(self):
         newCoords = set()
-        for x in range(0,501):
-            for y in range(0,501):
+        for x in range(1,100):
+            for y in range(1,100):
                 currentState = self.get(x, y)
                 nextState = GoL.nextState(currentState, self.neighbours(x, y))
                 if nextState == Alive:
