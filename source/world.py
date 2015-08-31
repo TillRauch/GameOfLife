@@ -36,14 +36,14 @@ class World():
         self.coords.add((x, y))
     
     def nextGeneration(self):
+        newCoords = set()
         for x in range(0,501):
             for y in range(0,501):
                 currentState = self.get(x, y)
                 nextState = GoL.nextState(currentState, self.neighbours(x, y))
-                if nextState == Dead and currentState == Alive:
-                    self.coords.remove((x, y))
-                if nextState == Alive and currentState == Dead:
-                    self.coords.add((x, y))
+                if nextState == Alive:
+                    newCoords.add((x, y))
+        self.coords = newCoords
                     
             
 
