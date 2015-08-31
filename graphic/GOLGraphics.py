@@ -24,7 +24,7 @@ def kill_cell(x, y):
 def randomCells(world):
     for x in range(1, 100):
         for y in range(1, 100):
-            if random.randrange(0, 2) == 1:
+            if random.randrange(0, 7) == 1:
                 world.activate(x, y)
         
 def updateGrapics(world):
@@ -35,16 +35,14 @@ def updateGrapics(world):
             else:
                 kill_cell(x, y)
 
-
-
-def start(self):
+def start():
     world = World()
     randomCells(world)
+    return world
+
+def step(world):
     updateGrapics(world)
     world.nextGeneration()
-    canvas.after(100, start())
-    
-
-
-
-
+    canvas.pack()
+    canvas.update()
+    canvas.after(100, step(world))
