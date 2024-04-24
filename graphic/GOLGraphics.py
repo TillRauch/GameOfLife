@@ -41,6 +41,7 @@ def start():
     return world
 
 def step(world):
+    canvas.delete("all")
     updateGrapics(world)
     world.nextGeneration()
     canvas.pack()
